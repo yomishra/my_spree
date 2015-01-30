@@ -150,5 +150,12 @@ Spree::Core::Engine.add_routes do
     end
   end
 
-  get '/admin', :to => 'admin/orders#index', :as => :admin
+  #get '/admin', :to => 'admin/orders#index', :as => :admin
+
+  #Yogi Changes start
+  
+  #Changing default URL to Products index
+  get '/admin', :to => 'admin/products#index', :as => :admin
+  #Yogi Changes end
+
 end
