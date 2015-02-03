@@ -87,8 +87,8 @@ module Spree
 
     validates :meta_keywords, length: { maximum: 255 }
     validates :name, presence: true
-    validates :price, presence: true, if: proc { Spree::Config[:require_master_price] }
-    validates :shipping_category_id, presence: true
+   # validates :price, presence: true, if: proc { Spree::Config[:require_master_price] }
+   # validates :shipping_category_id, presence: true
     validates :slug, length: { minimum: 3 }, uniqueness: { allow_blank: true }
 
     attr_accessor :option_values_hash
@@ -142,8 +142,9 @@ module Spree
     # determine if product is available.
     # deleted products and products with nil or future available_on date
     # are not available
-    def available?
-      !(available_on.nil? || available_on.future?) && !deleted?
+    def available?     
+     return true
+     # !(available_on.nil? || available_on.future?) && !deleted?
     end
 
     # split variants list into hash which shows mapping of opt value onto matching variants
