@@ -8,7 +8,7 @@
       </div>
     <% end %>
 
-    <div class="field" data-hook="sku">
+    <!-- <div class="field" data-hook="sku">
       <%= f.label :sku, Spree.t(:sku) %>
       <%= f.text_field :sku, :class => 'fullwidth' %>
     </div>
@@ -26,17 +26,17 @@
     <div class="field" data-hook="tax_category">
       <%= f.label :tax_category_id, Spree.t(:tax_category) %>
       <%= f.collection_select(:tax_category_id, @tax_categories, :id, :name, { :include_blank => Spree.t('match_choices.none') }, { :class => 'select2 fullwidth' }) %>
-    </div>
+    </div> -->
   </div>
 </div>
 
-<div class="right six columns omega label-block" data-hook="admin_variant_form_additional_fields">
+<!-- <div class="right six columns omega label-block" data-hook="admin_variant_form_additional_fields">
   <% [:weight, :height, :width, :depth].each do |field| %>
     <div class="field" data-hook="<%= field %>"><%= f.label field, Spree.t(field) %>
       <% value = number_with_precision(@variant.send(field), :precision => 2) %>
       <%= f.text_field field, :value => value, :class => 'fullwidth' %>
     </div>
   <% end %>
-</div>
+</div> -->
 
 <div class="clear"></div>
