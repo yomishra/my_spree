@@ -34,8 +34,8 @@ module Spree
     has_many :taxons, through: :classifications
     has_and_belongs_to_many :promotion_rules, join_table: :spree_products_promotion_rules
 
-    belongs_to :tax_category, class_name: 'Spree::TaxCategory'
-    belongs_to :shipping_category, class_name: 'Spree::ShippingCategory', inverse_of: :products
+  #  belongs_to :tax_category, class_name: 'Spree::TaxCategory'
+  #  belongs_to :shipping_category, class_name: 'Spree::ShippingCategory', inverse_of: :products
 
     has_one :master,
       -> { where is_master: true },
@@ -55,10 +55,10 @@ module Spree
 
     has_many :prices, -> { order('spree_variants.position, spree_variants.id, currency') }, through: :variants
 
-    has_many :stock_items, through: :variants_including_master
+  #  has_many :stock_items, through: :variants_including_master
 
-    has_many :line_items, through: :variants_including_master
-    has_many :orders, through: :line_items
+  #  has_many :line_items, through: :variants_including_master
+  #  has_many :orders, through: :line_items
 
     delegate_belongs_to :master, :sku, :price, :currency, :display_amount, :display_price, :weight, :height, :width, :depth, :is_master, :has_default_price?, :cost_currency, :price_in, :amount_in
 
@@ -142,7 +142,7 @@ module Spree
     # determine if product is available.
     # deleted products and products with nil or future available_on date
     # are not available
-    def available?     
+    def available?
      return true
      # !(available_on.nil? || available_on.future?) && !deleted?
     end

@@ -9,13 +9,13 @@ module Spree
                         :shipping_category_id, :meta_description, :meta_keywords,
                         :shipping_category
 
-    has_many :inventory_units, inverse_of: :variant
-    has_many :line_items, inverse_of: :variant
-    has_many :orders, through: :line_items
+  #  has_many :inventory_units, inverse_of: :variant
+  #  has_many :line_items, inverse_of: :variant
+  #  has_many :orders, through: :line_items
 
-    has_many :stock_items, dependent: :destroy, inverse_of: :variant
-    has_many :stock_locations, through: :stock_items
-    has_many :stock_movements, through: :stock_items
+  #  has_many :stock_items, dependent: :destroy, inverse_of: :variant
+  #  has_many :stock_locations, through: :stock_items
+  #  has_many :stock_movements, through: :stock_items
 
     has_and_belongs_to_many :option_values, join_table: :spree_option_values_variants
     has_many :images, -> { order(:position) }, as: :viewable, dependent: :destroy, class_name: "Spree::Image"
@@ -43,7 +43,7 @@ module Spree
 
     after_save :save_default_price
 
-    after_create :create_stock_items
+  #  after_create :create_stock_items
     after_create :set_position
     after_create :set_master_out_of_stock, unless: :is_master?
 
